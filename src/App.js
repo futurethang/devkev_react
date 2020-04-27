@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Post from "./components/Post";
-import "./App.css";
+import "./App.scss";
 import { useSpring, animated } from "react-spring";
 import axios from "axios";
 
@@ -42,33 +42,48 @@ function App() {
 
   return (
     <div className="App">
+      {/* ///// HEADER CONTENT ///// */}
       <header className="App-header">
-        <h1>A Demo of Post Listing</h1>
+        <div className="title-nav">
+          <h1>DEVKEV.NET</h1>
+          <nav>
+            {Object.keys(CATEGORY_KEYS).map((category, i) => {
+              return (
+                <button
+                  onClick={(e) => filterCategory(e.target.value)}
+                  key={i}
+                  value={CATEGORY_KEYS[category]}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </nav>
+        </div>
+        <div className="sub-header">
+          <h2>online stuff, offline stuff</h2>
+          <button className="site-nav">navigate component</button>
+          <input type="search" placeholder="search"></input>
+        </div>
       </header>
-      <nav>
-        {Object.keys(CATEGORY_KEYS).map((category, i) => {
-          return (
-            <button
-              onClick={(e) => filterCategory(e.target.value)}
-              key={i}
-              value={CATEGORY_KEYS[category]}
-            >
-              {category}
-            </button>
-          );
-        })}
-      </nav>
-      <section>
-        {filteredPosts.posts.map((item) => {
-          return (
-            <>
-              <animated.div style={props}>
+      {/* ///// EVERYTHING BELOW THE HEADER ///// */}
+      <div className="site-content">
+        <main>
+          {filteredPosts.posts.map((item, i) => {
+            return (
+              <animated.div style={props} key={i}>
                 <Post {...item} key={item.id} />
               </animated.div>
-            </>
-          );
-        })}
-      </section>
+            );
+          })}
+        </main>
+        <aside className="side-content">
+          {/* // Each of these might be iterations of an Aside component, what are their similarities? */}
+          <section className="about-me">about me</section>
+          <section className="technologies">technologies used</section>
+          <section className="links">links to things</section>
+        </aside>
+      </div>
     </div>
   );
 }

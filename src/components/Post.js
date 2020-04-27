@@ -27,7 +27,7 @@ function Post(props) {
   };
 
   return (
-    <div className="post">
+    <article className="post">
       <header>
         <ArticleThumb date={props.date} />
         <div className="header-text">
@@ -52,7 +52,7 @@ function Post(props) {
             return <Comment {...comment} />;
           })}
       </footer>
-    </div>
+    </article>
   );
 }
 

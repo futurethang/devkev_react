@@ -10,7 +10,6 @@ export default function MetaData(props) {
     data.data.forEach((tag) => {
       tags[tag.id] = tag["name"];
     });
-    console.log(tags)
     setTags(tags);
   };
 
@@ -25,8 +24,8 @@ export default function MetaData(props) {
         <div className="social"></div>
       </header>
       <section className="tags">
-        {Object.keys(tags).map((tag) => {
-          return <button>{tags[Number(tag)]}</button>;
+        {Object.keys(tags).map((tag, i) => {
+          return <button key={i}>{tags[Number(tag)]}</button>;
         })}
       </section>
     </div>
