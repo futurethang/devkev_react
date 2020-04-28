@@ -15,13 +15,7 @@ export default function ArticleThumb(props) {
   return (
     <div className="article-thumb">
       <div
-        className="image"
-        style={{
-          height: "30px",
-          width: "30px",
-          borderRadius: "50%",
-          background: "black",
-        }}
+        className="thumb-image"
       ></div>
       <span className="article-date">{formattedDate}</span>
     </div>

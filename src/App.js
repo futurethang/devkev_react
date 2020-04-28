@@ -79,9 +79,33 @@ function App() {
         </main>
         <aside className="side-content">
           {/* // Each of these might be iterations of an Aside component, what are their similarities? */}
-          <section className="about-me">about me</section>
-          <section className="technologies">technologies used</section>
-          <section className="links">links to things</section>
+          <section className="about-me">
+            <h4>about me</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+              voluptatibus alias laboriosam corrupti eaque eius ipsum
+              repudiandae consequuntur eum accusamus ea veniam, velit, suscipit
+              non voluptate expedita architecto nulla eligendi.
+            </p>
+          </section>
+          <section className="technologies">
+            <h4>technologies</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+              voluptatibus alias laboriosam corrupti eaque eius ipsum
+              repudiandae consequuntur eum accusamus ea veniam, velit, suscipit
+              non voluptate expedita architecto nulla eligendi.
+            </p>
+          </section>
+          <section className="links">
+            <h4>links</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
+              voluptatibus alias laboriosam corrupti eaque eius ipsum
+              repudiandae consequuntur eum accusamus ea veniam, velit, suscipit
+              non voluptate expedita architecto nulla eligendi.
+            </p>
+          </section>
         </aside>
       </div>
     </div>
