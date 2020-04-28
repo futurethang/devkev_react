@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Post from "./components/Post";
-import "./App.scss";
+import "./styles/App.scss";
 import { useSpring, animated } from "react-spring";
 import axios from "axios";
 
