@@ -24,7 +24,7 @@ body {
 
 .App {
   height: 100vh;
-  padding: 1rem;
+  padding: 1rem 2rem 1rem 1rem;
 }
 
 .App-header {
@@ -34,6 +34,7 @@ body {
   align-items: flex-start;
   justify-content: space-between;
   color: $title-text-color;
+  margin: 0 0 2rem 0;
 
   .title-nav {
     display: flex;
@@ -44,6 +45,18 @@ body {
       font-size: calc(100px + 2vmin);
       font-family: $source-code-reg;
       font-weight: 100;
+      margin: 0 0 2rem 0;
+    }
+  }
+  .sub-header {
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 20vh;
+
+    h2 {
+      font-size: 2.25rem;
+      font-family: $source-code-reg;
+      font-weight: 200;
       margin: 0 0 2rem 0;
     }
   }

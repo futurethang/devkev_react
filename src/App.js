@@ -61,7 +61,7 @@ function App() {
           </nav>
         </div>
         <div className="sub-header">
-          <h2>online stuff, offline stuff</h2>
+          <h2>online stuff,<br />offline stuff</h2>
           <button className="site-nav">navigate component</button>
           <input type="search" placeholder="search"></input>
         </div>
