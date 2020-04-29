@@ -28,30 +28,32 @@ function Post(props) {
 
   return (
     <article className="post">
-      <header>
-        <ArticleThumb date={props.date} />
-        <div className="header-text">
-          <h3>{props.title.rendered}</h3>
-          <h4 className="interweave">
-            <Interweave content={trimExcerpt(props.excerpt.rendered)} />
-          </h4>
-        </div>
-      </header>
-      <section>
-        <div className="interweave">
-          <Interweave content={props.content.rendered}></Interweave>
-        </div>
-      </section>
-      <footer>
-        <MetaData {...metaData} />
-        <button onClick={() => loadComments(props.id)}>
-          {commentsShowing ? "hide" : "show"} comments
-        </button>
-        {commentsShowing &&
-          comments.map((comment) => {
-            return <Comment {...comment} />;
-          })}
-      </footer>
+      <ArticleThumb date={props.date} />
+      <div className="article-body">
+        <header>
+          <div className="header-text">
+            <h3>{props.title.rendered}</h3>
+            <h4 className="interweave">
+              <Interweave content={trimExcerpt(props.excerpt.rendered)} />
+            </h4>
+          </div>
+        </header>
+        <section>
+          <div className="interweave">
+            <Interweave content={props.content.rendered}></Interweave>
+          </div>
+        </section>
+        <footer>
+          <MetaData {...metaData} />
+          <button onClick={() => loadComments(props.id)}>
+            {commentsShowing ? "hide" : "show"} comments
+          </button>
+          {commentsShowing &&
+            comments.map((comment) => {
+              return <Comment {...comment} />;
+            })}
+        </footer>
+      </div>
     </article>
   );
 }
