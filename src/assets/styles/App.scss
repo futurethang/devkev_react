@@ -1,10 +1,18 @@
 @import "./normalize.css";
+@import "../sass/fonts.scss";
 
 $app-bg-color: #2c2c2c;
-$post-bg-color: #eee;
+
 $post-border-radius: 10px;
 
+$title-text-color: #0093ff;
+$source-code-reg: "SourceCodeRegular", sans-serif;
+$source-code-light: "SourceCodeLight", sans-serif;
+$source-sans-reg: "SourceSansRegular", sans-serif;
+
 $white: #fff;
+$light-grey: #D8D8D8;
+$medium-grey: #979797;
 
 body {
   background-color: #2c2c2c;
@@ -21,7 +29,7 @@ body {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  color: #0093ff;
+  color: $title-text-color;
 
   .title-nav {
     display: flex;
@@ -30,6 +38,9 @@ body {
 
     h1 {
       font-size: calc(100px + 2vmin);
+      font-family: $source-code-reg;
+      font-weight: 100;
+      margin: 2rem 0;
     }
   }
 }
@@ -41,7 +52,8 @@ body {
 }
 
 .post {
-  background-color: $post-bg-color;
+  background-color: $light-grey;
+  border: 1px solid $medium-grey;
   display: flex;
   flex-direction: column;
   margin: 6px;
@@ -94,6 +106,13 @@ body {
 }
 
 .side-content {
+  h4 {
+    color: $title-text-color;
+    text-transform: uppercase;
+  }
+  p{
+    color: $light-grey
+  }
   section {
     padding: 2rem;
     color: $white;
