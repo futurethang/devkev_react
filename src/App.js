@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Post from "./components/Post";
+import { CategoryFilter, Post } from "./components/index";
 import "./assets/styles/App.scss";
 import { useSpring, animated } from "react-spring";
 import axios from "axios";
-
-const CATEGORY_KEYS = {
-  ALL: 0,
-  GENERAL: 4,
-  GRAPHIC_DESIGN: 11,
-  ILLUSTRATION: 12,
-  PHOTOGRAPHY: 19,
-  PORTFOLIO: 23,
-  SKILL_DEVELOPMENT: 5,
-  WEB_DEVELOPMENT: 48,
-};
 
 function App() {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -29,12 +18,24 @@ function App() {
     getData("http://devkev.net/wp-json/wp/v2/posts");
   }, []);
 
+  const CATEGORY_KEYS = {
+    ALL: 0,
+    GENERAL: 4,
+    GRAPHIC_DESIGN: 11,
+    ILLUSTRATION: 12,
+    PHOTOGRAPHY: 19,
+    PORTFOLIO: 23,
+    SKILL_DEVELOPMENT: 5,
+    WEB_DEVELOPMENT: 48,
+  };
+
   const filterCategory = async (target) => {
-    if (Number(target) === 0) {
+    const key = Number(target.dataset.catkey);
+    if (key === 0) {
       setFilteredPosts({ posts: data.posts });
     } else {
       const newList = await data.posts.filter((post) => {
-        return post["categories"].includes(Number(target));
+        return post["categories"].includes(key);
       });
       setFilteredPosts({ posts: newList });
     }
@@ -49,19 +50,22 @@ function App() {
           <nav>
             {Object.keys(CATEGORY_KEYS).map((category, i) => {
               return (
-                <button
-                  onClick={(e) => filterCategory(e.target.value)}
+                <CategoryFilter
                   key={i}
-                  value={CATEGORY_KEYS[category]}
-                >
-                  {category}
-                </button>
+                  category={category}
+                  categoryKey={CATEGORY_KEYS[category]}
+                  filterCategory={filterCategory}
+                />
               );
             })}
           </nav>
         </div>
         <div className="sub-header">
-          <h2>online stuff,<br />offline stuff</h2>
+          <h2>
+            online stuff,
+            <br />
+            offline stuff
+          </h2>
           <button className="site-nav">navigate component</button>
           <input type="search" placeholder="search"></input>
         </div>
