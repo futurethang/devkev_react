@@ -52,8 +52,10 @@ body {
     flex-direction: row;
 
     button.category-nav-button {
+      position: relative;
       height: 30px;
       width: 30px;
+      margin-right: 1rem;
       border: 3px solid $title-text-color;
       border-radius: 50%;
       background-color: black;

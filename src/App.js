@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CategoryFilter, Post } from "./components/index";
+import { Categories, CategoryFilter, Post } from "./components/index";
 import "./assets/styles/App.scss";
 import { useSpring, animated } from "react-spring";
 import axios from "axios";
@@ -47,7 +47,8 @@ function App() {
       <header className="App-header">
         <div className="title-nav">
           <h1>DEVKEV.NET</h1>
-          <nav>
+          <Categories categories={Object.keys(CATEGORY_KEYS)} filterCategory={filterCategory} />
+          {/* <nav>
             {Object.keys(CATEGORY_KEYS).map((category, i) => {
               return (
                 <CategoryFilter
@@ -58,7 +59,7 @@ function App() {
                 />
               );
             })}
-          </nav>
+          </nav> */}
         </div>
         <div className="sub-header">
           <h2>
