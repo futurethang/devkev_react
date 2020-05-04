@@ -15,7 +15,7 @@ function App() {
   };
 
   useEffect(() => {
-    getData("http://devkev.net/wp-json/wp/v2/posts");
+    getData("http://3.83.123.43//wp-json/wp/v2/posts");
   }, []);
 
   const CATEGORY_KEYS = {

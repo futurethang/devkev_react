@@ -5,7 +5,7 @@ export default function MetaData(props) {
   const [tags, setTags] = useState([]);
 
   const getTagsRegistry = async () => {
-    let data = await Axios("http://devkev.net/wp-json/wp/v2/tags");
+    let data = await Axios("http://3.83.123.43/wp-json/wp/v2/tags");
     let tags = {};
     data.data.forEach((tag) => {
       tags[tag.id] = tag["name"];
