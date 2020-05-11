@@ -21,13 +21,10 @@ function App() {
 
   const filterCategory = async (target) => {
     const key = Number(target.dataset.catkey);
-    console.log(key);
     if (key === 0) {
       setFilteredPosts({ posts: data.posts });
     } else {
       const newList = await data.posts.filter((post) => {
-        console.log(key, post.categories[0], post.categories.includes(key));
-        // debugger;
         return post["categories"].includes(key);
       });
       setFilteredPosts({ posts: newList });
@@ -63,8 +60,8 @@ function App() {
             <br />
             offline stuff
           </h2>
-          <button className="site-nav">navigate component</button>
-          <input type="search" placeholder="search"></input>
+          {/* <button className="site-nav">navigate component</button>
+          <input type="search" placeholder="search"></input> */}
         </div>
       </header>
       {/* ///// EVERYTHING BELOW THE HEADER ///// */}
