@@ -3,6 +3,7 @@ import { Categories, CategoryFilter, Post } from "./components/index";
 import "./assets/styles/App.scss";
 import { useSpring, animated } from "react-spring";
 import axios from "axios";
+import {CATEGORY_KEYS} from "./utils/enums";
 
 function App() {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -15,26 +16,18 @@ function App() {
   };
 
   useEffect(() => {
-    getData("http://3.83.123.43//wp-json/wp/v2/posts");
+    getData("https://devkev.net/wp-json/wp/v2/posts");
   }, []);
-
-  const CATEGORY_KEYS = {
-    ALL: 0,
-    GENERAL: 4,
-    GRAPHIC_DESIGN: 11,
-    ILLUSTRATION: 12,
-    PHOTOGRAPHY: 19,
-    PORTFOLIO: 23,
-    SKILL_DEVELOPMENT: 5,
-    WEB_DEVELOPMENT: 48,
-  };
 
   const filterCategory = async (target) => {
     const key = Number(target.dataset.catkey);
+    console.log(key);
     if (key === 0) {
       setFilteredPosts({ posts: data.posts });
     } else {
       const newList = await data.posts.filter((post) => {
+        console.log(key, post.categories[0], post.categories.includes(key));
+        // debugger;
         return post["categories"].includes(key);
       });
       setFilteredPosts({ posts: newList });
@@ -47,7 +40,10 @@ function App() {
       <header className="App-header">
         <div className="title-nav">
           <h1>DEVKEV.NET</h1>
-          <Categories categories={Object.keys(CATEGORY_KEYS)} filterCategory={filterCategory} />
+          <Categories
+            categories={Object.keys(CATEGORY_KEYS)}
+            filterCategory={filterCategory}
+          />
           {/* <nav>
             {Object.keys(CATEGORY_KEYS).map((category, i) => {
               return (

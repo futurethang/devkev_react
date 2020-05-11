@@ -20,7 +20,7 @@ function Post(props) {
 
   const loadComments = async (id) => {
     const comments = await Axios(
-      `http://3.83.123.43/wp-json/wp/v2/comments?post=${id}`
+      `https://devkev.net/wp-json/wp/v2/comments?post=${id}`
     );
     setComments(comments.data);
     setCommentsShowing(!commentsShowing);

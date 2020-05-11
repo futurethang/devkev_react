@@ -1,17 +1,7 @@
 import React from "react";
 import { CategoryFilter } from "./index";
 import { animated, config, useSpring, useTrail } from "react-spring";
-
-const CATEGORY_KEYS = {
-  ALL: 0,
-  GENERAL: 4,
-  GRAPHIC_DESIGN: 11,
-  ILLUSTRATION: 12,
-  PHOTOGRAPHY: 19,
-  PORTFOLIO: 23,
-  SKILL_DEVELOPMENT: 5,
-  WEB_DEVELOPMENT: 48,
-};
+import {CATEGORY_KEYS} from "../utils/enums";
 
 export default function Categories(props) {
   function getInitials(text) {
