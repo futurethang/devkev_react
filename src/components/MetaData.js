@@ -13,6 +13,15 @@ export default function MetaData(props) {
     setTags(tags);
   };
 
+  const formatDate = (date) => {
+    if (date !== undefined) {
+      const month = date.substring(5, 7);
+      const day = date.substring(8, 10);
+      const year = date.substring(2, 4);
+      return `${month}.${day}.${year}`;
+    }
+  };
+
   useEffect(() => {
     getTagsRegistry();
   }, []);
@@ -20,12 +29,15 @@ export default function MetaData(props) {
   return (
     <div className="meta-data">
       <header>
-        <div className="publish-date">{`Published at ${props.date} on ${props.date}`}</div>
         <div className="social"></div>
       </header>
       <section className="tags">
         {Object.keys(tags).map((tag, i) => {
-          return <button key={i}>{tags[Number(tag)]}</button>;
+          return (
+            <button className="tag-toggle" key={i}>
+              {tags[Number(tag)]}
+            </button>
+          );
         })}
       </section>
     </div>

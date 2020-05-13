@@ -1,11 +1,12 @@
+import aws from "../assets/logos"
+
 export const CATEGORY_KEYS = {
   ALL: 0,
   ART: 2,
-  GENERAL: 3,
-  GRAPHIC_DESIGN: 4,
-  ILLUSTRATION: 5,
-  PHOTOGRAPHY: 6,
-  PORTFOLIO: 7,
-  SKILL_DEVELOPMENT: 8,
   WEB_DEVELOPMENT: 9,
 };
+
+
+export const WEBDEV_LOGOS = {
+  AWS: aws
+}

@@ -45,13 +45,17 @@ function Post(props) {
         </section>
         <footer>
           <MetaData {...metaData} />
-          <button onClick={() => loadComments(props.id)}>
+          <button className={`comment-toggle-${commentsShowing}`} onClick={() => loadComments(props.id)}>
             {commentsShowing ? "hide" : "show"} comments
           </button>
           {commentsShowing &&
-            comments.map((comment) => {
-              return <Comment {...comment} />;
-            })}
+            (comments.length > 0 ? (
+              comments.map((comment) => {
+                return <Comment {...comment} />;
+              })
+            ) : (
+              <span>no comments posted yet</span>
+            ))}
         </footer>
       </div>
     </article>

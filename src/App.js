@@ -3,7 +3,8 @@ import { Categories, CategoryFilter, Post } from "./components/index";
 import "./assets/styles/App.scss";
 import { useSpring, animated } from "react-spring";
 import axios from "axios";
-import {CATEGORY_KEYS} from "./utils/enums";
+import { CATEGORY_KEYS, WEBDEV_LOGOS } from "./utils/enums";
+import Ticker from "react-ticker";
 
 function App() {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -36,7 +37,9 @@ function App() {
       {/* ///// HEADER CONTENT ///// */}
       <header className="App-header">
         <div className="title-nav">
-          <h1>DEVKEV.NET</h1>
+          <a href="https://devkev.net">
+            <h1>DEVKEV.NET</h1>
+          </a>
           <Categories
             categories={Object.keys(CATEGORY_KEYS)}
             filterCategory={filterCategory}
@@ -78,22 +81,46 @@ function App() {
         <aside className="side-content">
           {/* // Each of these might be iterations of an Aside component, what are their similarities? */}
           <section className="about-me">
-            <h4>about me</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
-              voluptatibus alias laboriosam corrupti eaque eius ipsum
-              repudiandae consequuntur eum accusamus ea veniam, velit, suscipit
-              non voluptate expedita architecto nulla eligendi.
+            <h4 className="title is-size-2 has-text-white">Hi, I’m Kevin.</h4>
+            <h5 className="is-size-4 has-text-white">
+              I’m a Front End Developer & Designer.
+            </h5>
+            <p className="is-size-6 has-text-white">
+              I'm also an artist, musician, photographer, gardener, and kitchen
+              gnome. By day I tease apart complex UX problems with leading
+              JavaScript frameworks and chase the future with next-generation
+              web technnologies. My experience in design, business, customer
+              care, and leadership enable me to work excellently with designers
+              and devs alike to craft user experiences that are robust,
+              reusable, accessible, and creative.
             </p>
+            <p className="is-size-6 has-text-white">
+              Looking for a strong addition to your team? &nbsp;
+              <a href="#">Contact me!</a>
+            </p>
+            <span className="icon is-large has-text-white">
+              <a href="https://github.com/futurethang" target="blank">
+                <i className="fab fa-2x fa-github"></i>
+              </a>
+            </span>
+            <span className="icon is-large has-text-white">
+              <a
+                href="https://www.linkedin.com/in/kevin-hyde-fullstack/"
+                target="blank"
+              >
+                <i className="fab fa-2x fa-linkedin"></i>
+              </a>
+            </span>
           </section>
           <section className="technologies">
             <h4>technologies</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
-              voluptatibus alias laboriosam corrupti eaque eius ipsum
-              repudiandae consequuntur eum accusamus ea veniam, velit, suscipit
-              non voluptate expedita architecto nulla eligendi.
-            </p>
+            <Ticker>
+              {({ index }) => (
+                <>
+                  <img src={WEBDEV_LOGOS.aws} />
+                </>
+              )}
+            </Ticker>
           </section>
           <section className="links">
             <h4>links</h4>
