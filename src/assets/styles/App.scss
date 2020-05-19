@@ -268,6 +268,12 @@ a {
   }
 }
 
+.logo > svg {
+  max-height: 60px;
+  width: auto;
+  margin: 0 2rem;
+}
+
 h5 {
   font-size: 1.25rem;
   margin: 0;

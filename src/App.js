@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Categories, CategoryFilter, Post } from "./components/index";
-import "./assets/styles/App.scss";
-import { useSpring, animated } from "react-spring";
 import axios from "axios";
-import { CATEGORY_KEYS, WEBDEV_LOGOS } from "./utils/enums";
-import Ticker from "react-ticker";
+import { Categories, Post, LogoTicker } from "./components/index";
+import { useSpring, animated } from "react-spring";
+import { CATEGORY_KEYS } from "./utils/enums";
+import "./assets/styles/App.scss";
 
 function App() {
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
@@ -44,18 +43,6 @@ function App() {
             categories={Object.keys(CATEGORY_KEYS)}
             filterCategory={filterCategory}
           />
-          {/* <nav>
-            {Object.keys(CATEGORY_KEYS).map((category, i) => {
-              return (
-                <CategoryFilter
-                  key={i}
-                  category={category}
-                  categoryKey={CATEGORY_KEYS[category]}
-                  filterCategory={filterCategory}
-                />
-              );
-            })}
-          </nav> */}
         </div>
         <div className="sub-header">
           <h2>
@@ -63,8 +50,6 @@ function App() {
             <br />
             offline stuff
           </h2>
-          {/* <button className="site-nav">navigate component</button>
-          <input type="search" placeholder="search"></input> */}
         </div>
       </header>
       {/* ///// EVERYTHING BELOW THE HEADER ///// */}
@@ -114,13 +99,7 @@ function App() {
           </section>
           <section className="technologies">
             <h4>technologies</h4>
-            <Ticker>
-              {({ index }) => (
-                <>
-                  <img src={WEBDEV_LOGOS.aws} />
-                </>
-              )}
-            </Ticker>
+            <LogoTicker />
           </section>
           <section className="links">
             <h4>links</h4>
