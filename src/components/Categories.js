@@ -4,9 +4,6 @@ import { animated, config, useSpring, useTrail } from "react-spring";
 import {CATEGORY_KEYS} from "../utils/enums";
 
 export default function Categories(props) {
-  function getInitials(text) {
-    return text[0];
-  }
 
   const trail = useTrail(props.categories.length, {
     config: { mass: 1, tension: 200, friction: 20 },
@@ -33,7 +30,7 @@ export default function Categories(props) {
             data-catkey={CATEGORY_KEYS[props.categories[index]]}
             style={{ opacity, bottom }}
           >
-            {getInitials(props.categories[index])}
+            {props.categories[index]}
           </animated.button>
         );
       })}

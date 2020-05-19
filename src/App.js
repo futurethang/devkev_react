@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
 import { Categories, Post, LogoTicker } from "./components/index";
 import { useSpring, animated } from "react-spring";
 import { CATEGORY_KEYS } from "./utils/enums";
@@ -81,21 +84,29 @@ function App() {
             </p>
             <p className="is-size-6 has-text-white">
               Looking for a strong addition to your team? &nbsp;
-              <a href="#">Contact me!</a>
+              <a href="mailto:kphyde@gmail.com">Contact me!</a>
             </p>
-            <span className="icon is-large has-text-white">
-              <a href="https://github.com/futurethang" target="blank">
-                <i className="fab fa-2x fa-github"></i>
-              </a>
-            </span>
-            <span className="icon is-large has-text-white">
-              <a
-                href="https://www.linkedin.com/in/kevin-hyde-fullstack/"
-                target="blank"
-              >
-                <i className="fab fa-2x fa-linkedin"></i>
-              </a>
-            </span>
+            <a
+              className="social-logo"
+              href="https://github.com/futurethang"
+              target="blank"
+            >
+              <FontAwesomeIcon icon={faGithub} size="4x" />
+            </a>
+            <a
+              className="social-logo"
+              href="https://www.linkedin.com/in/kevin-hyde-fullstack/"
+              target="blank"
+            >
+              <FontAwesomeIcon icon={faLinkedin} size="4x" />
+            </a>
+            <a
+              className="social-logo"
+              href="https://www.linkedin.com/in/kevin-hyde-fullstack/"
+              target="blank"
+            >
+              <FontAwesomeIcon icon={faEnvelopeSquare} size="4x" />
+            </a>
           </section>
           <section className="technologies">
             <h4>technologies</h4>

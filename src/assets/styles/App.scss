@@ -61,10 +61,10 @@ a {
       cursor: pointer;
       position: relative;
       height: 30px;
-      width: 30px;
+      width: auto;
       margin-right: 1rem;
       border: 3px solid $title-text-color;
-      border-radius: 50%;
+      border-radius: 2rem;
       background-color: black;
       color: $title-text-color;
       opacity: 75%;
@@ -266,6 +266,10 @@ a {
     ); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007599', endColorstr='#003f52', GradientType=0 ); /* IE6-9 */
   }
+}
+
+.social-logo {
+  margin-right: 2rem;
 }
 
 .logo > svg {
