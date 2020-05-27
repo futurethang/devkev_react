@@ -10,12 +10,12 @@ const trimExcerpt = (text) => {
 function Post(props) {
   const [comments, setComments] = useState([]);
   const [commentsShowing, setCommentsShowing] = useState(false);
-
   const metaData = {
     date: props.date,
     comments: null,
     shares: null,
     tags: props.tags,
+    id: props.id
   };
 
   const loadComments = async (id) => {

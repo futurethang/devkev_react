@@ -4,12 +4,14 @@ import Axios from "axios";
 export default function MetaData(props) {
   const [tags, setTags] = useState([]);
 
-  const getTagsRegistry = async () => {
-    let data = await Axios("https://devkev.net/wp-json/wp/v2/tags");
-    let tags = {};
-    data.data.forEach((tag) => {
-      tags[tag.id] = tag["name"];
-    });
+  const getTagsRegistry = async (tagIds) => {
+    let tags = [];
+    for (const tagId of tagIds) {
+      const data = await Axios(
+        `https://devkev.net/wp-json/wp/v2/tags/${tagId}`
+      );
+      tags.push(data.data.name);
+    }
     setTags(tags);
   };
 
@@ -23,7 +25,7 @@ export default function MetaData(props) {
   };
 
   useEffect(() => {
-    getTagsRegistry();
+    getTagsRegistry(props.tags);
   }, []);
 
   return (
@@ -32,10 +34,10 @@ export default function MetaData(props) {
         <div className="social"></div>
       </header>
       <section className="tags">
-        {Object.keys(tags).map((tag, i) => {
+        {tags.map((tag, i) => {
           return (
             <button className="tag-toggle" key={i}>
-              {tags[Number(tag)]}
+              {tag}
             </button>
           );
         })}

@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faEnvelopeSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import { Categories, Post, LogoTicker } from "./components/index";
 import { useSpring, animated } from "react-spring";
 import { CATEGORY_KEYS } from "./utils/enums";
@@ -16,6 +19,10 @@ function App() {
   const getData = async (url) => {
     const result = await axios(url);
     setData({ posts: result.data });
+    const featurePost = result.data.filter((post) => {
+      return post["sticky"] === true;
+    });
+    setFilteredPosts({ posts: featurePost });
   };
 
   useEffect(() => {
@@ -39,9 +46,7 @@ function App() {
       {/* ///// HEADER CONTENT ///// */}
       <header className="App-header">
         <div className="title-nav">
-          <a href="https://devkev.net">
-            <h1>DEVKEV.NET</h1>
-          </a>
+          <h1>DEV.KEV</h1>
           <Categories
             categories={Object.keys(CATEGORY_KEYS)}
             filterCategory={filterCategory}
@@ -102,24 +107,15 @@ function App() {
             </a>
             <a
               className="social-logo"
-              href="https://www.linkedin.com/in/kevin-hyde-fullstack/"
+              href="mailto:kphyde@gmail.com"
               target="blank"
             >
               <FontAwesomeIcon icon={faEnvelopeSquare} size="4x" />
             </a>
           </section>
           <section className="technologies">
-            <h4>technologies</h4>
+            <h4>My Toolkit</h4>
             <LogoTicker />
-          </section>
-          <section className="links">
-            <h4>links</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim,
-              voluptatibus alias laboriosam corrupti eaque eius ipsum
-              repudiandae consequuntur eum accusamus ea veniam, velit, suscipit
-              non voluptate expedita architecto nulla eligendi.
-            </p>
           </section>
         </aside>
       </div>

@@ -5,8 +5,3 @@ export const CATEGORY_KEYS = {
   ART: 2,
   WEB_DEV: 9,
 };
-
-
-export const WEBDEV_LOGOS = {
-  AWS: aws
-}
