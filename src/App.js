@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -6,51 +7,28 @@ import {
   faEnvelope,
   faEnvelopeSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import { Categories, Post, LogoTicker } from "./components/index";
+import {
+  Categories,
+  MainContentArea,
+  Post,
+  LogoTicker,
+} from "./components/index";
 import { useSpring, animated } from "react-spring";
 import { CATEGORY_KEYS } from "./utils/enums";
 import "./assets/styles/App.scss";
 
 function App() {
-  const props = useSpring({ opacity: 1, from: { opacity: 0 } });
-  const [data, setData] = useState({ posts: [] });
-  const [filteredPosts, setFilteredPosts] = useState({ posts: [] });
-
-  const getData = async (url) => {
-    const result = await axios(url);
-    setData({ posts: result.data });
-    const featurePost = result.data.filter((post) => {
-      return post["sticky"] === true;
-    });
-    setFilteredPosts({ posts: featurePost });
-  };
-
-  useEffect(() => {
-    getData("https://devkev.net/wp-json/wp/v2/posts");
-  }, []);
-
-  const filterCategory = async (target) => {
-    const key = Number(target.dataset.catkey);
-    if (key === 0) {
-      setFilteredPosts({ posts: data.posts });
-    } else {
-      const newList = await data.posts.filter((post) => {
-        return post["categories"].includes(key);
-      });
-      setFilteredPosts({ posts: newList });
-    }
-  };
-
+  
   return (
     <div className="App">
       {/* ///// HEADER CONTENT ///// */}
       <header className="App-header">
         <div className="title-nav">
           <h1>DEV.KEV</h1>
-          <Categories
+          {/* <Categories
             categories={Object.keys(CATEGORY_KEYS)}
             filterCategory={filterCategory}
-          />
+          /> */}
         </div>
         <div className="sub-header">
           <h2>
@@ -62,15 +40,18 @@ function App() {
       </header>
       {/* ///// EVERYTHING BELOW THE HEADER ///// */}
       <div className="site-content">
-        <main>
-          {filteredPosts.posts.map((item, i) => {
-            return (
-              <animated.div style={props} key={i}>
-                <Post {...item} key={item.id} />
-              </animated.div>
-            );
-          })}
-        </main>
+        <Router>
+          <MainContentArea />
+          {/* <main>
+            {filteredPosts.posts.map((item, i) => {
+              return (
+                <animated.div style={props} key={i}>
+                  <Post {...item} key={item.id} />
+                </animated.div>
+              );
+            })}
+          </main> */}
+        </Router>
         <aside className="side-content">
           {/* // Each of these might be iterations of an Aside component, what are their similarities? */}
           <section className="about-me">
