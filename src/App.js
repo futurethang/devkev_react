@@ -12,6 +12,9 @@ function App() {
       <div className="App">
         {/* ///// HEADER CONTENT ///// */}
         <header className="App-header">
+          
+          <div className="sub-header">
+          <h1>DEV.KEV</h1>
           <div className="title-nav">
             
             <ul>
@@ -31,13 +34,11 @@ function App() {
             filterCategory={filterCategory}
           /> */}
           </div>
-          <div className="sub-header">
-          <h1>DEV.KEV</h1>
-            <h2>
+            {/* <h2>
               online stuff,
               <br />
               offline stuff
-            </h2>
+            </h2> */}
           </div>
         </header>
         {/* ///// EVERYTHING BELOW THE HEADER ///// */}
