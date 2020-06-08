@@ -13,7 +13,7 @@ function App() {
         {/* ///// HEADER CONTENT ///// */}
         <header className="App-header">
           <div className="title-nav">
-            <h1>DEV.KEV</h1>
+            
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -32,6 +32,7 @@ function App() {
           /> */}
           </div>
           <div className="sub-header">
+          <h1>DEV.KEV</h1>
             <h2>
               online stuff,
               <br />
