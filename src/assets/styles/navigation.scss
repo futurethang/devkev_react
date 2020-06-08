@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 1rem 0;
+
+  button.category-nav-button {
+    cursor: pointer;
+    position: relative;
+    height: 30px;
+    width: auto;
+    margin-right: 1rem;
+    border: 3px solid $title-text-color;
+    border-radius: 2rem;
+    background-color: black;
+    color: $title-text-color;
+    opacity: 75%;
+    @include standard-shadow();
+  }
+}
